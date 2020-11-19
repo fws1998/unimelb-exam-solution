@@ -44,7 +44,6 @@ $$
 
 ## N-step TD
 
-If $\tau + n < T$:
 $$
 G_{\tau}^{n} = \sum_{i = \tau + 1}^{min(\tau + n, T)}\gamma ^{i - \tau - 1}r_{i}
 \\
@@ -53,4 +52,14 @@ G_{\tau}^{n} = \sum_{i = \tau + 1}^{min(\tau + n, T)}\gamma ^{i - \tau - 1}r_{i}
 Q(S_{\Tau}, A_{\tau}) = Q(S_{\tau}, A_{\tau}) + \alpha [G_{\tau}^{n} - Q(S_{\Tau}, A_{\tau})]
 $$
 
+## Approximate Q-function Representation
 
+For Q-learning:
+$$
+w^{a}_{i} = w^{a}_{i} + \alpha[r + \gamma max'_{a}Q(s', a') - Q(s, a)]f_{i}(s, a)
+$$
+
+For SARSA: 
+$$
+w^{a}_{i} = w^{a}_{i} + \alpha[r + \gamma Q(s', a') - Q(s, a)]f_{i}(s, a)
+$$

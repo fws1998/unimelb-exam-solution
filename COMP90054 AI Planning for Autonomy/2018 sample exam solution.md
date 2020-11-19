@@ -5,7 +5,7 @@ Explain the concept of an *all-outcomes determinisation* in non-deterministic pl
 
 ## Answer 4
 
-?
+(Didn't mention this year)
 
 ---
 

@@ -84,25 +84,23 @@ Describe briefly in STRIPS how to model the problem where a robot can move horiz
 
 ### Answer 3
 
-Suppose the start point is (0,0).
-
 $P = <F, O, I, G>$
 
-$F =\{at(x), at(y), visited(x, y) | x \in \{0, 1, 2\}, y \in \{0, 1, 2, 3\} \}$ 
+$F =\{at(x), at(y)| x \in \{0, 1, 2\}, y \in \{0, 1, 2, 3\} \}$ 
 
 O = {move(x, y, x', y') :
 
 ​    \- Prec: at(x), at(y)
 
-​    \- Add: at(x'), at(y'), visited(x',y')
+​    \- Add: at(x'), at(y')
 
 ​    \- Del: at(x), at(y)
 
-| |dx + dy| = 1 and (x', y') $\notin$ *hashed* cell}
+| for each adjacent(x,y)(x',y') and (x', y') $\notin$ *hashed* cell}
 
-I = {at(0), at(0), visited(0, 0)}
+}
 
-G = {visited(x, y) | (x, y) $\in$ V}
+The definition of *I* and *G* is relevant to specific problem.
 
 ---
 
@@ -118,7 +116,7 @@ STRIP:
 
 $P = <F, O, I, G>$
 
-$F =\{at(x, y), visited(x, y) | x \in \{0, 1, 2\}, y \in \{0, 1, 2, 3\} \}$ 
+$F =\{at(x, y)| x \in \{0, 1, 2\}, y \in \{0, 1, 2, 3\} \}$ 
 
 O = {move(x, y, x', y') :
 
@@ -130,19 +128,17 @@ O = {move(x, y, x', y') :
 
 | for each adjacent(x,y)(x',y') and (x', y') $\notin$ *hashed* cell}
 
-I = {at(0, 0), visited(0, 0)}
-
-G = {visited(x, y) | (x, y) $\in$ V}
+The definition of *I* and *G* is relevant to specific problem.
 
 ### Question 5
 
 Using your last STRIPS encoding where *hadd = h∗*, an initial state *s0 = robot at location I* and a goal state *sg = robot at location K*, compute *hadd(sg)* and *hff* from the best supporters induced by *hadd*.
 
-**Show your working**
+**![Screen Shot 2020-06-29 at 10.34.57 AM](/Users/Aaron-Qiu/Library/Application Support/typora-user-images/Screen Shot 2020-06-29 at 10.34.57 AM.png)Show your working**
 
 ### Answer 5
 
-$h^{add} = 5$
+$h^{add}(s_{0}) = 5$
 
 bs(at(K)) = move(H, K) -> need at(H)
 
@@ -156,7 +152,7 @@ bs(at(E)) = move(I,E). Support by initial state: at(I)
 
 Relaxed Plan is {move(I,E),move(E,F),move(F, G) ,move(G,H),move(H, K) }
 
-$h^{ff} = \sum_{a\in RPlan} = 5$
+$h^{ff}(s_{0}) = \sum_{a\in RPlan} = 5$
 
 ---
 
